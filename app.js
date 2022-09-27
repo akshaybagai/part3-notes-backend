@@ -22,6 +22,9 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(middleware.requestLogger)
 
+//this is the base path for notes controller
+//The router is in fact a middleware, that can be used for defining "related routes" in a single place,
+// that is typically placed in its own module.
 app.use('/api/notes', notesRouter)
 
 app.use(middleware.unknownEndpoint)
